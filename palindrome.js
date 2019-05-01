@@ -1,11 +1,19 @@
 function isPalindrome(str) {
-  var noSpaces = str.split(" ").join("");
+  var lowerCase = str.toLowerCase();
+  var noSpaces = lowerCase.split(" ").join("");
   var mid = Math.floor(noSpaces.length/2);
   var last = noSpaces.length - 1;
+  var bool = true;
 
   for (var i = 0; i < mid; i++) {
-    if (str[i] !== str[last - i]) return false;
+    if (noSpaces[i] !== noSpaces[last - i]) {
+      bool = false;
+    }
   }
+    if (noSpaces.length === 1) {
+      bool = true;
+  }
+  return bool;
 }
 
 // Test driver code. These should all log true.
